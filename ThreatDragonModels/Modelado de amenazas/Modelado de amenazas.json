@@ -7,7 +7,11 @@
     "id": 0
   },
   "detail": {
-    "contributors": [],
+    "contributors": [
+      {
+        "name": "Iván Rodriguez Franco"
+      }
+    ],
     "diagrams": [
       {
         "id": 0,
