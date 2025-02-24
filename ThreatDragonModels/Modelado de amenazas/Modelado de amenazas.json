@@ -42,6 +42,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -125,7 +126,6 @@
               ]
             },
             "id": "cac2f82b-6a44-4c90-b9f0-aed64476f523",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Usuarios",
@@ -134,7 +134,11 @@
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [],
+              "threatFrequency": {
+                "spoofing": 0,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -158,6 +162,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -241,7 +246,6 @@
               ]
             },
             "id": "88e19bfc-f127-4fc8-a10c-9fdf21bd9a01",
-            "zIndex": 2,
             "data": {
               "type": "tm.Actor",
               "name": "Bibliotecario",
@@ -277,6 +281,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -360,7 +365,6 @@
               ]
             },
             "id": "452ecf8c-6a1d-4c1d-a5eb-acb6b902606e",
-            "zIndex": 3,
             "data": {
               "type": "tm.Store",
               "name": "Páginas web en disco",
@@ -400,6 +404,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -483,7 +488,6 @@
               ]
             },
             "id": "39262319-fc35-4c10-bdb9-dc6c0cc88c9d",
-            "zIndex": 4,
             "data": {
               "type": "tm.Store",
               "name": "Web application configuration",
@@ -523,6 +527,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -606,7 +611,6 @@
               ]
             },
             "id": "04411ff3-4a30-46bb-a87e-bbbc6a00cc8d",
-            "zIndex": 5,
             "data": {
               "type": "tm.Store",
               "name": "Base de datos MySQL",
@@ -643,6 +647,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 6,
             "ports": {
               "groups": {
                 "top": {
@@ -726,7 +731,6 @@
               ]
             },
             "id": "fcacf964-0050-42a7-8e37-8d3fc9f6c355",
-            "zIndex": 6,
             "data": {
               "type": "tm.Process",
               "name": "Sitio web \nbiblioteca",
@@ -1522,6 +1526,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 0
+    "threatTop": 1
   }
 }
