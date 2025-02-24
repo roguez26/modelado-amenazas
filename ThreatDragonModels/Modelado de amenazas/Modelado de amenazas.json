@@ -1533,7 +1533,7 @@
         "cells": [
           {
             "position": {
-              "x": -10,
+              "x": -30,
               "y": 140
             },
             "size": {
@@ -1768,8 +1768,8 @@
           },
           {
             "position": {
-              "x": 220,
-              "y": 330
+              "x": 270,
+              "y": 350
             },
             "size": {
               "width": 120,
@@ -2010,8 +2010,8 @@
           },
           {
             "position": {
-              "x": 690,
-              "y": 270
+              "x": 670,
+              "y": 330
             },
             "size": {
               "width": 120,
@@ -2162,7 +2162,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultado SQL de usuario \nautenticado",
+                    "text": "solicitud SQL de usuario\n autenticado",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2244,7 +2244,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultado SQL de usuario \nautenticado",
+                    "text": "solicitud SQL de usuario\n autenticado",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2326,7 +2326,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultado SQL de usuario \nautenticado",
+                    "text": "solicitud SQL de usuario\n autenticado",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2408,7 +2408,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultado SQL de usuario \nautenticado",
+                    "text": "solicitud SQL de usuario\n autenticado",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2471,7 +2471,39 @@
             "height": 100,
             "zIndex": 10,
             "labels": [
-              "solicitud SQL de usuario\n\n autenticad"
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "solicitud SQL de usuario\n autenticado",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
             ],
             "connector": "smooth",
             "data": {
@@ -2498,8 +2530,8 @@
             },
             "vertices": [
               {
-                "x": 660,
-                "y": 210
+                "x": 630,
+                "y": 190
               }
             ]
           },
@@ -2534,7 +2566,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultado SQL de usuario \nautenticado",
+                    "text": "solicitud SQL de usuario\n autenticado",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2611,7 +2643,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultado SQL de usuario \nautenticado",
+                    "text": "solicitud SQL de usuario\n autenticado",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2653,7 +2685,7 @@
             },
             "target": {
               "cell": "96d5dc4d-5fbe-4094-ba87-63f033da9546",
-              "port": "ceff3ac2-d9b9-4b7a-8db5-e5f0e368d225"
+              "port": "db0068bc-39c2-4fd9-ae8a-565863451dae"
             },
             "vertices": [
               {
@@ -2661,8 +2693,136 @@
                 "y": 170
               },
               {
+                "x": 740,
+                "y": 120
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Servidor/DB límite",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Usuario/Web \nlímite",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "3b404e1e-05e8-4059-a073-251338cc835e",
+            "source": {
+              "x": 103,
+              "y": 21
+            },
+            "target": {
+              "x": 60,
+              "y": 300
+            },
+            "vertices": [
+              {
+                "x": 150,
+                "y": 180
+              }
+            ]
+          },
+          {
+            "shape": "trust-boundary-curve",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Servidor/DB límite",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Boundary",
+              "name": "Servidor/DB límite",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            },
+            "id": "afdcdc0c-0650-45d6-9d87-ce2f74427eb1",
+            "source": {
+              "x": 600,
+              "y": 370
+            },
+            "target": {
+              "x": 880,
+              "y": 360
+            },
+            "vertices": [
+              {
                 "x": 730,
-                "y": 150
+                "y": 300
               }
             ]
           }
