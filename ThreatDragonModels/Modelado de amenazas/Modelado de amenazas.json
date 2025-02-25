@@ -780,7 +780,7 @@
                   "title": "Denegación de servicio",
                   "status": "Open",
                   "severity": "Medium",
-                  "type": "Spoofing",
+                  "type": "Denial of service",
                   "description": "Un atacante podría denegar el\nacceso a usuarios válidos,\nhaciendo que el servidor web\nno esté disponible o sea\ninutilizable temporalmente\npor medio del envío de\nmúltiples peticiones\nsimultaneas.",
                   "mitigation": "Se utiliza un balanceo de\ncargas en el servidor web.\nSe monitorean las\ndirecciones IP de los\nclientes y al encontrar un\nposible ataque, se bloquea\nel acceso.\nSe considera contratar un\nservicio de VPN para\nocultar la dirección IP\npública a los clientes.\n",
                   "modelType": "STRIDE",
@@ -794,7 +794,7 @@
                 "tampering": 0,
                 "repudiation": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 0,
+                "denialOfService": 1,
                 "elevationOfPrivilege": 0
               }
             }
@@ -803,7 +803,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -830,7 +831,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultados de \nconsultas web",
+                    "text": "Solicitud web ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -854,16 +855,35 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Respuesta web",
-              "description": "",
+              "name": "Respuesta web ",
+              "description": "Respuestas enviadas por la\naplicación hacia los usuarios.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "df7dc9b7-d716-4da0-be82-afee457d5b56",
+                  "title": "El flujo de datos debe utilizar HTTP/S",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Estas respuestas se transmiten\na traves de la Internet pública\ny podrían ser interceptadas\npor un atacante.",
+                  "mitigation": "Las respuestas deberian\nrequerir HTTPS/S. Esto\nproporcionara\nconfidencialidad e\nintegridad. HTTP",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 34,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "b73a7e51-9814-4528-8d32-7cb2ebda456d",
             "source": {
@@ -877,6 +897,10 @@
               {
                 "x": 210,
                 "y": 120
+              },
+              {
+                "x": 186,
+                "y": 60
               }
             ]
           },
@@ -1314,7 +1338,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1341,7 +1366,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultados de \nconsultas web",
+                    "text": "Solicitud web ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -1365,16 +1390,35 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Solicitud web",
-              "description": "",
+              "name": "Solicitud web ",
+              "description": "Respuestas recibidas por la\naplicación hacia los bibliotecarios.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9b62721a-44ae-474b-aa3f-87da130152ea",
+                  "title": "El flujo de datos debe utilizar HTTP/S",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Estas solicitudes se\ntransmiten a través de la\nInternet pública y podrían ser\ninterceptadas por un atacante.",
+                  "mitigation": "Las solicitudes deberían\nrequerir HTTPS/S. Esto\nproporcionara\nconfidencialidad e\nintegridad. HTTP no debe\nser compatible",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 35,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "3c3e32b1-131c-41bb-acbd-f9aa81789f0f",
             "source": {
@@ -1396,7 +1440,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1448,15 +1493,34 @@
             "data": {
               "type": "tm.Flow",
               "name": "Respuesta web",
-              "description": "",
+              "description": "Respuestas enviadas por la\naplicación hacia los bibliotecarios.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "fe1dce22-eddd-4012-920b-84673ed10fee",
+                  "title": "El flujo de datos debe utilizar HTTP/S",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Estas respuestas se transmiten\na traves de la Internet pública\ny podrían ser interceptadas\npor un atacante",
+                  "mitigation": "Las respuestas deberian\nrequerir HTTPS/S. Esto\nproporcionara\nconfidencialidad e\nintegridad. HTTP no debe\nser compatible.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 36,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "757c5430-4866-4003-91a9-4d70dc2f6bd0",
             "source": {
@@ -2905,6 +2969,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 33
+    "threatTop": 36
   }
 }
