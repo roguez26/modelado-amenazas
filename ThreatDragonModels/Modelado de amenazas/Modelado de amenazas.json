@@ -2432,7 +2432,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2484,15 +2485,34 @@
             "data": {
               "type": "tm.Flow",
               "name": "Solicitud web",
-              "description": "",
+              "description": "Respuestas recibidas por la\naplicación hacia los usuarios.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "3c60a818-0c18-481a-bc0b-fe0dbe29fe66",
+                  "title": "El flujo de datos debe utilizar HTTP/S",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Estas solicitudes se\ntransmiten a través de la\nInternet pública y podrían\nser interceptadas por un\natacante.",
+                  "mitigation": "Las solicitudes\ndeberían requerir\nHTTPS/S. Esto\nproporcionara\nconfidencialidad e\nintegridad. HTTP no\ndebe ser compatible",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 46,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "61e86ee5-bcc5-4425-94a6-88907a6e974f",
             "source": {
@@ -2514,7 +2534,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -2541,7 +2562,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Respuesta web ",
+                    "text": "Vistas  ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2566,15 +2587,34 @@
             "data": {
               "type": "tm.Flow",
               "name": "Respuesta web ",
-              "description": "",
+              "description": "Respuestas enviadas por la aplicación\nhacia los usuarios.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "fd943367-e2cd-4a2f-95c8-e43961901fdf",
+                  "title": "El flujo de datos debe utilizar HTTP/S",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Estas respuestas se\ntransmiten a traves de la\nInternet pública y podrían\nser interceptadas por un\natacante.",
+                  "mitigation": "Las respuestas\ndeberian requerir\nHTTPS/S. Esto\nproporcionara\nconfidencialidad e\nintegridad. HTTP no\ndebe ser compatible.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 45,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "ea6c5560-6112-4191-a64b-102c1ad66a20",
             "source": {
@@ -2705,82 +2745,6 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Respuesta web ",
-                    "textAnchor": "middle",
-                    "textVerticalAnchor": "middle"
-                  },
-                  "labelBody": {
-                    "ref": "labelText",
-                    "refRx": "50%",
-                    "refRy": "60%",
-                    "fill": "#fff",
-                    "strokeWidth": 0
-                  }
-                },
-                "position": {
-                  "distance": 0.5,
-                  "args": {
-                    "keepGradient": true,
-                    "ensureLegibility": true
-                  }
-                }
-              }
-            ],
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Vistas ",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "4f81bdc1-746c-40dc-b155-d8c3004ce898",
-            "source": {
-              "cell": "667d78d6-34d7-40ec-ad27-1fb4c028e5e8",
-              "port": "41f456b1-c3a4-44c9-a9bc-83409d8dd091"
-            },
-            "target": {
-              "cell": "e10d11f5-9fbe-4f08-bdbe-85b7b2338cb4",
-              "port": "ceff3ac2-d9b9-4b7a-8db5-e5f0e368d225"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "labels": [
-              {
-                "markup": [
-                  {
-                    "tagName": "ellipse",
-                    "selector": "labelBody"
-                  },
-                  {
-                    "tagName": "text",
-                    "selector": "labelText"
-                  }
-                ],
-                "attrs": {
-                  "labelText": {
                     "text": "solicitud SQL de usuario\n autenticado",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
@@ -2863,7 +2827,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Respuesta web ",
+                    "text": "Vistas  ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2949,7 +2913,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Respuesta web ",
+                    "text": "Vistas  ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -3131,6 +3095,82 @@
                 "y": 300
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": "4 3"
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "Vistas  ",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Vistas  ",
+              "description": "",
+              "outOfScope": true,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "id": "4f81bdc1-746c-40dc-b155-d8c3004ce898",
+            "source": {
+              "cell": "667d78d6-34d7-40ec-ad27-1fb4c028e5e8",
+              "port": "41f456b1-c3a4-44c9-a9bc-83409d8dd091"
+            },
+            "target": {
+              "cell": "e10d11f5-9fbe-4f08-bdbe-85b7b2338cb4",
+              "port": "ceff3ac2-d9b9-4b7a-8db5-e5f0e368d225"
+            }
           }
         ]
       }
