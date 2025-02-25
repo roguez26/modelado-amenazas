@@ -2345,13 +2345,6 @@
                 "denialOfService": 0,
                 "elevationOfPrivilege": 1
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -2368,11 +2361,13 @@
                 "text": "Base de datos\nMySQL"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2465,16 +2460,49 @@
             "data": {
               "type": "tm.Store",
               "name": "Base de datos\nMySQL",
-              "description": "",
+              "description": "El servidor de la base de datos será\nMySQL y se ejecutará en un servidor\nLinux. Este servidor será reforzado\nsegún el estándar de protección de\nservidores de la universidad. Esto\nincluirá la instalación de los últimos\nparches de seguridad del sistema\noperativo y de las aplicaciones.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "311c4b23-c7eb-4ec4-b73a-73b84cbbe07f",
+                  "title": "Acceso no autorizado",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Un atacante podría enviar\nuna consulta a la BD.",
+                  "mitigation": "Requerir que todas las\nconsultas sean\nautenticadas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 52,
+                  "score": ""
+                },
+                {
+                  "id": "78f32989-a1ea-47ff-bd61-ccf8e365dac9",
+                  "title": "Robo de credenciales",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría obtener\nlas credenciales de la base\nde datos y utilizarlas para\nrealizar consultas no\nautorizadas.\n",
+                  "mitigation": "Utilice un firewall para\nrestringir el acceso a la\nbase de datos\núnicamente a la\ndirección IP del\ntrabajador en segundo\nplano.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 53,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -3280,6 +3308,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 51
+    "threatTop": 53
   }
 }
