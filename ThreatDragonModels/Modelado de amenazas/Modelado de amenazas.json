@@ -400,7 +400,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Páginas web en disco",
-              "description": "",
+              "description": "Páginas físicas almacenadas en el\ndisco.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -409,7 +409,27 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "36f9dbfa-28da-4717-9e58-a101ed1cf730",
+                  "title": "Modificación sin autorización",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Un atacante podría modificar\nlas páginas web sin\nautorización",
+                  "mitigation": "Las páginas solo tienen\nacceso de lectura.\nÚnicamente el usuario\nadministrador puede tener\nacceso de escritura",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 39,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -426,11 +446,13 @@
                 "text": "Web application configuration"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -523,16 +545,36 @@
             "data": {
               "type": "tm.Store",
               "name": "Web application configuration",
-              "description": "",
+              "description": "Archivo de configuración de la\naplicación.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "c97f2002-d152-4b42-bda7-51354f772d59",
+                  "title": "Las credenciales deben estar cifradas.",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "La configuración de la\naplicación web almacena las\ncredenciales utilizadas por la\naplicación web para acceder a\nla cola de mensajes. Un\natacante podría robarlos y\nutilizarlos para leer datos\nconfidenciales o colocar\nmensajes dudosos en la cola.",
+                  "mitigation": "Las credenciales de\nalmacenadas deben estar\ncifradas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 42,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -549,11 +591,13 @@
                 "text": "Base de datos MySQL"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -646,16 +690,49 @@
             "data": {
               "type": "tm.Store",
               "name": "Base de datos MySQL",
-              "description": "",
+              "description": "El servidor de la base de datos será\nMySQL y se ejecutará en un\nservidor Linux. Este servidor será\nreforzado según el estándar de\nprotección de servidores de la\nuniversidad. Esto incluirá la\ninstalación de los últimos parches de\nseguridad del sistema operativo y de\nlas aplicaciones.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "2ce28b39-e550-4ee6-885f-e24742235266",
+                  "title": "Acceso no autorizado",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría enviar una\nconsulta a la BD",
+                  "mitigation": "Requerir que todas las\nconsultas sean\nautenticadas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 40,
+                  "score": ""
+                },
+                {
+                  "id": "53e405ab-a826-4420-83aa-696ce392d8c9",
+                  "title": "Robo de credenciales",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría obtener\nlas credenciales de la base de\ndatos y utilizarlas para\nrealizar consultas no\nautorizadas.",
+                  "mitigation": "Utilice un firewall para\nrestringir el acceso a la\nbase de datos únicamente\na la dirección IP del\ntrabajador en segundo\nplano.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 41,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 2,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -831,7 +908,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Solicitud web ",
+                    "text": "Solicitudes ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -935,7 +1012,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultados de \nconsultas web",
+                    "text": "Solicitudes ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -959,7 +1036,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Páginas web",
+              "name": "Páginas web ",
               "description": "",
               "outOfScope": true,
               "reasonOutOfScope": "",
@@ -981,8 +1058,12 @@
             },
             "vertices": [
               {
-                "x": 270,
-                "y": 280
+                "x": 220,
+                "y": 300
+              },
+              {
+                "x": 300,
+                "y": 270
               }
             ]
           },
@@ -1099,7 +1180,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultados de \nconsultas web",
+                    "text": "Solicitudes ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -1124,7 +1205,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Resultados de \nconsultas web",
-              "description": "",
+              "description": "Datos recuperados desde la base de\ndatos.\n",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1132,7 +1213,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9a5054d8-be40-4d73-b106-ca171bcf81fc",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría interceptar\nlas consultas de la base de\ndatos en tránsito y obtener\ninformación confidencial,\ncomo credenciales de la base\nde datos, parámetros de\nconsulta o resultados de la\nconsulta (es poco probable ya\nque el flujo de datos se\nrealiza a través de una red\nprivada).",
+                  "mitigation": "Aplicar una conexión\ncifrada en el servidor de\nbase de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 37,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "d47e93bc-4b48-48d0-81ed-fb6a39eacfde",
             "source": {
@@ -1181,7 +1281,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultados de \nconsultas web",
+                    "text": "Solicitudes ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -1205,8 +1305,8 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Solicitudes",
-              "description": "",
+              "name": "Solicitudes ",
+              "description": "Instrucciones de SQL enviadas\nhacia la base de datos.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -1214,7 +1314,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "ad9848c3-b6de-4b2d-97d1-10eb9e6fdd5d",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría interceptar\nlas consultas de la base de\ndatos en tránsito y obtener\ninformación confidencial,\ncomo credenciales de la base\nde datos, parámetros de consulta o resultados de la\nconsulta (es poco probable ya\nque el flujo de datos se\nrealiza a través de una red\nprivada).",
+                  "mitigation": "Aplicar una conexión\ncifrada en el servidor de\nbase de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 38,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "0fa66716-860b-4cbb-b89c-d0921372873f",
             "source": {
@@ -1264,7 +1383,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Solicitud web ",
+                    "text": "Solicitudes ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -1366,7 +1485,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Solicitud web ",
+                    "text": "Solicitudes ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2969,6 +3088,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 36
+    "threatTop": 42
   }
 }
