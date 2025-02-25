@@ -157,7 +157,7 @@
           },
           {
             "position": {
-              "x": 375,
+              "x": 371.25,
               "y": -150
             },
             "size": {
@@ -287,13 +287,6 @@
                 "spoofing": 1,
                 "repudiation": 0
               }
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -679,8 +672,8 @@
                 "text": "Sitio web \nbiblioteca"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -773,15 +766,37 @@
             "data": {
               "type": "tm.Process",
               "name": "Sitio web \nbiblioteca",
-              "description": "",
+              "description": "El sitio web de la biblioteca\nuniversitaria se ejecutará en un\nservidor Linux con Apache. Este\nservidor será reforzado según el\nestándar de protección de servidores\nde la universidad.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "535c12e9-bda6-4abc-a718-25aa2520e3dc",
+                  "title": "Denegación de servicio",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Un atacante podría denegar el\nacceso a usuarios válidos,\nhaciendo que el servidor web\nno esté disponible o sea\ninutilizable temporalmente\npor medio del envío de\nmúltiples peticiones\nsimultaneas.",
+                  "mitigation": "Se utiliza un balanceo de\ncargas en el servidor web.\nSe monitorean las\ndirecciones IP de los\nclientes y al encontrar un\nposible ataque, se bloquea\nel acceso.\nSe considera contratar un\nservicio de VPN para\nocultar la dirección IP\npública a los clientes.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 32,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -1197,7 +1212,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -1224,7 +1240,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultados de \nconsultas web",
+                    "text": "Solicitud web ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -1248,16 +1264,35 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Solicitud web",
-              "description": "",
+              "name": "Solicitud web ",
+              "description": "Respuestas recibidas por la\naplicación hacia los usuarios",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "a65b92c6-bcea-451c-b0fe-96bbf0df52c8",
+                  "title": "El flujo de datos debe utilizar HTTP/S",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Estas solicitudes se\ntransmiten a través de la\nInternet pública y podrían ser interceptadas por un atacante.",
+                  "mitigation": "Las solicitudes deberían\nrequerir HTTPS/S. Esto\nproporcionara confidencialidad e\nintegridad. HTTP no debe\nser compatible",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 33,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "811373c1-d89e-4189-8afc-e6bef62701ff",
             "source": {
@@ -2870,6 +2905,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 31
+    "threatTop": 33
   }
 }
