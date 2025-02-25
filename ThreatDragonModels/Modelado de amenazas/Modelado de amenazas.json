@@ -2174,7 +2174,7 @@
             "data": {
               "type": "tm.Store",
               "name": "Páginas web en disco",
-              "description": "",
+              "description": "Páginas físicas almacenadas en el\ndisco.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2183,7 +2183,27 @@
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "6cf9f091-fe3b-4f7d-ba21-82339e32ce1c",
+                  "title": "Modificación sin autorización",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Un atacante podría\nmodificar las páginas web\nsin autorización.\n",
+                  "mitigation": "Las páginas solo tienen\nacceso de lectura.\nÚnicamente el usuario\nadministrador puede\ntener acceso de\nescritura.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 50,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
             }
           },
           {
@@ -2200,8 +2220,8 @@
                 "text": "Proceso \nde login"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -2294,15 +2314,44 @@
             "data": {
               "type": "tm.Process",
               "name": "Proceso \nde login",
-              "description": "",
+              "description": "Procedimiento que recibe las\npeticiones del usuario para iniciar la\nsesión.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "ff05173b-cdf5-405b-bba0-eb691a304606",
+                  "title": "Ataque de fuerza bruta",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "Un atacante podría realizar\nun ataque con un\ndiccionario para tratar de\nadivinar la contraseña de los\nusuarios.",
+                  "mitigation": "Se deben bloquear la\ncuenta después de N\nintentos fallidos.\nSe deben validar la\ncomplejidad y longitud\nde las contraseñas.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 51,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 1
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -2561,88 +2610,6 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "solicitud SQL de usuario\n autenticado",
-                    "textAnchor": "middle",
-                    "textVerticalAnchor": "middle"
-                  },
-                  "labelBody": {
-                    "ref": "labelText",
-                    "refRx": "50%",
-                    "refRy": "60%",
-                    "fill": "#fff",
-                    "strokeWidth": 0
-                  }
-                },
-                "position": {
-                  "distance": 0.5,
-                  "args": {
-                    "keepGradient": true,
-                    "ensureLegibility": true
-                  }
-                }
-              }
-            ],
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "solicitud SQL de usuario\n autenticado",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "id": "04210c6f-6b01-4bbb-b41f-8e623dedcc7b",
-            "source": {
-              "cell": "96d5dc4d-5fbe-4094-ba87-63f033da9546",
-              "port": "ceff3ac2-d9b9-4b7a-8db5-e5f0e368d225"
-            },
-            "target": {
-              "cell": "09a4475f-4cb0-4045-82dc-8c63c7e6e822",
-              "port": "41f456b1-c3a4-44c9-a9bc-83409d8dd091"
-            },
-            "vertices": [
-              {
-                "x": 630,
-                "y": 190
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "labels": [
-              {
-                "markup": [
-                  {
-                    "tagName": "ellipse",
-                    "selector": "labelBody"
-                  },
-                  {
-                    "tagName": "text",
-                    "selector": "labelText"
-                  }
-                ],
-                "attrs": {
-                  "labelText": {
                     "text": "Respuesta web  ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
@@ -2668,7 +2635,7 @@
             "data": {
               "type": "tm.Flow",
               "name": "Resultado SQL de usuario  \nautenticado ",
-              "description": "",
+              "description": "Instrucciones de SQL enviadas hacia\nla base de datos.",
               "outOfScope": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
@@ -2676,7 +2643,26 @@
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "46c9e406-cbb6-4cf4-b7a1-3145b79f616a",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría\ninterceptar las consultas de\nla base de datos en tránsito\ny obtener información\nconfidencial, como\ncredenciales de la base de\ndatos, parámetros de\nconsulta o resultados de la consulta (es poco probable\nya que el flujo de datos se\nrealiza a través de una red\nprivada)",
+                  "mitigation": "Aplicar una conexión\ncifrada en el servidor\nde base de datos",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 49,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
             },
             "id": "39af95b0-9f09-4ded-a04a-ed272d438db9",
             "source": {
@@ -3187,12 +3173,113 @@
                 "y": 220
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "labels": [
+              {
+                "markup": [
+                  {
+                    "tagName": "ellipse",
+                    "selector": "labelBody"
+                  },
+                  {
+                    "tagName": "text",
+                    "selector": "labelText"
+                  }
+                ],
+                "attrs": {
+                  "labelText": {
+                    "text": "solicitud SQL de usuario\n autenticado",
+                    "textAnchor": "middle",
+                    "textVerticalAnchor": "middle"
+                  },
+                  "labelBody": {
+                    "ref": "labelText",
+                    "refRx": "50%",
+                    "refRy": "60%",
+                    "fill": "#fff",
+                    "strokeWidth": 0
+                  }
+                },
+                "position": {
+                  "distance": 0.5,
+                  "args": {
+                    "keepGradient": true,
+                    "ensureLegibility": true
+                  }
+                }
+              }
+            ],
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "solicitud SQL de usuario\n autenticado",
+              "description": "Instrucciones de SQL enviadas hacia\nla base de datos.",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "31b094f0-97a1-4329-8cc1-8011562bd2fb",
+                  "title": "Ataque Man in the middle",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Un atacante podría\ninterceptar las consultas de\nla base de datos en tránsito\ny obtener información\nconfidencial, como\ncredenciales de la base de\ndatos, parámetros de\nconsulta o resultados de la\nconsulta (es poco probable\nya que el flujo de datos se\nrealiza a través de una red\nprivada)",
+                  "mitigation": "Aplicar una conexión\ncifrada en el servidor\nde base de datos.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 48,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 0
+              }
+            },
+            "id": "04210c6f-6b01-4bbb-b41f-8e623dedcc7b",
+            "source": {
+              "cell": "96d5dc4d-5fbe-4094-ba87-63f033da9546",
+              "port": "ceff3ac2-d9b9-4b7a-8db5-e5f0e368d225"
+            },
+            "target": {
+              "cell": "09a4475f-4cb0-4045-82dc-8c63c7e6e822",
+              "port": "41f456b1-c3a4-44c9-a9bc-83409d8dd091"
+            },
+            "vertices": [
+              {
+                "x": 630,
+                "y": 220
+              }
+            ]
           }
         ]
       }
     ],
     "diagramTop": 2,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 47
+    "threatTop": 51
   }
 }
