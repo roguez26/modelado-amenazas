@@ -2705,7 +2705,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "solicitud SQL de usuario\n autenticado",
+                    "text": "Vistas ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2729,7 +2729,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Vistas",
+              "name": "Vistas ",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -2748,6 +2748,16 @@
             "target": {
               "cell": "e10d11f5-9fbe-4f08-bdbe-85b7b2338cb4",
               "port": "ceff3ac2-d9b9-4b7a-8db5-e5f0e368d225"
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
             }
           },
           {
@@ -2863,7 +2873,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultado SQL de usuario \nautenticado ",
+                    "text": "Vistas ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2949,7 +2959,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Resultado SQL de usuario \nautenticado ",
+                    "text": "Vistas ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
