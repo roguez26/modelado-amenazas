@@ -2541,7 +2541,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "solicitud SQL de usuario\n autenticado",
+                    "text": "Respuesta web ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2565,7 +2565,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Respuesta web",
+              "name": "Respuesta web ",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -2705,7 +2705,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Vistas ",
+                    "text": "Respuesta web ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2748,16 +2748,6 @@
             "target": {
               "cell": "e10d11f5-9fbe-4f08-bdbe-85b7b2338cb4",
               "port": "ceff3ac2-d9b9-4b7a-8db5-e5f0e368d225"
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
             }
           },
           {
@@ -2873,7 +2863,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Vistas ",
+                    "text": "Respuesta web ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2959,7 +2949,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "Vistas ",
+                    "text": "Respuesta web ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
