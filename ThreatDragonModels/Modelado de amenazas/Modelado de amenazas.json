@@ -1786,7 +1786,7 @@
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.4.0",
+        "version": "2.3.0",
         "cells": [
           {
             "position": {
@@ -1802,13 +1802,14 @@
                 "text": "Usuarios"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -1892,16 +1893,33 @@
               ]
             },
             "id": "85402e67-275f-4142-aa41-2486f8f8b1af",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Usuarios",
-              "description": "",
+              "description": "(1) Usuario web anónimo.\n(2) Usuario con credenciales de inicio\nde sesión válidas.\n(3) Usuario con credenciales de inicio\nde sesión no válidas.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "4e80d102-11ea-40c4-84f1-75b1f5957896",
+                  "title": "Suplantación de identidad",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "Acción de amenaza\ndestinada a acceder y\nutilizar las credenciales de\notro usuario, como el\nnombre de usuario y la\ncontraseña.",
+                  "mitigation": "1. Autenticación\nadecuada\n2. Proteger datos\nsecretos\n3. No almacenar\nsecretos\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 43,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
             }
           },
           {
@@ -1918,13 +1936,14 @@
                 "text": "Controlador \nweb"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -2008,19 +2027,40 @@
               ]
             },
             "id": "e10d11f5-9fbe-4f08-bdbe-85b7b2338cb4",
-            "zIndex": 2,
             "data": {
               "type": "tm.Process",
               "name": "Controlador \nweb",
-              "description": "",
+              "description": "Controlador de entrada que recibe las\npeticiones del usuario para iniciar la\nsesión.",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "c7a4148f-290d-45e6-8107-339929d471d1",
+                  "title": "Denegación de servicio",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Un atacante podría denegar\nel acceso a usuarios válidos,\nhaciendo que el servidor\nweb no esté disponible o sea\ninutilizable temporalmente\npor medio del envío de\nmúltiples peticiones\nsimultaneas.",
+                  "mitigation": "Se utiliza un balanceo\nde cargas en el servidor\nweb.\nSe monitorean las\ndirecciones IP de los\nclientes y al encontrar\nun posible ataque, se\nbloquea el acceso.\nSe considera contratar\nun servicio de VPN\npara ocultar la\ndirección IP pública a\nlos clientes.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 44,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 3,
+                "elevationOfPrivilege": 0
+              }
             }
           },
           {
@@ -2047,6 +2087,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -2130,7 +2171,6 @@
               ]
             },
             "id": "667d78d6-34d7-40ec-ad27-1fb4c028e5e8",
-            "zIndex": 3,
             "data": {
               "type": "tm.Store",
               "name": "Páginas web en disco",
@@ -2167,6 +2207,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -2250,7 +2291,6 @@
               ]
             },
             "id": "96d5dc4d-5fbe-4094-ba87-63f033da9546",
-            "zIndex": 4,
             "data": {
               "type": "tm.Process",
               "name": "Proceso \nde login",
@@ -2289,6 +2329,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 5,
             "ports": {
               "groups": {
                 "top": {
@@ -2372,7 +2413,6 @@
               ]
             },
             "id": "09a4475f-4cb0-4045-82dc-8c63c7e6e822",
-            "zIndex": 5,
             "data": {
               "type": "tm.Store",
               "name": "Base de datos\nMySQL",
@@ -2823,7 +2863,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "solicitud SQL de usuario\n autenticado",
+                    "text": "Resultado SQL de usuario \nautenticado ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2847,7 +2887,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "resultado de usuario \nautenticado",
+              "name": "resultado de usuario \nautentica do",
               "description": "",
               "outOfScope": true,
               "reasonOutOfScope": "",
@@ -2867,7 +2907,16 @@
               "cell": "e10d11f5-9fbe-4f08-bdbe-85b7b2338cb4",
               "port": "db0068bc-39c2-4fd9-ae8a-565863451dae"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": 550,
+                "y": 150
+              },
+              {
+                "x": 520,
+                "y": 160
+              }
+            ]
           },
           {
             "shape": "flow",
@@ -2900,7 +2949,7 @@
                 ],
                 "attrs": {
                   "labelText": {
-                    "text": "solicitud SQL de usuario\n autenticado",
+                    "text": "Resultado SQL de usuario \nautenticado ",
                     "textAnchor": "middle",
                     "textVerticalAnchor": "middle"
                   },
@@ -2924,7 +2973,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Resultado SQL de usuario \nautenticado",
+              "name": "Resultado SQL de usuario \nautenticado ",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -3088,6 +3137,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 42
+    "threatTop": 44
   }
 }
