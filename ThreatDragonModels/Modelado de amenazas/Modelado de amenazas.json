@@ -169,8 +169,8 @@
                 "text": "Bibliotecario"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -263,12 +263,37 @@
             "data": {
               "type": "tm.Actor",
               "name": "Bibliotecario",
-              "description": "Puede crear usuarios y ver su información",
+              "description": "4) Bibliotecario. ",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "883310fa-0d25-4914-b520-23f3a02d4171",
+                  "title": "Suplantación de identidad",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "Acción de amenaza destinada\na acceder y utilizar las\ncredenciales de otro usuario,\ncomo el nombre de usuario y\nla contraseña.",
+                  "mitigation": "1. Autenticación\nadecuada\n2. Proteger datos secretos\n3. No almacenar secretos",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 31,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "repudiation": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -2845,6 +2870,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "Guillermo Humberto Vera Amaro",
-    "threatTop": 30
+    "threatTop": 31
   }
 }
